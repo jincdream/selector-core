@@ -134,6 +134,7 @@ export default class Selector {
     mode: FilterMode
   ) {
     const useRemove = mode === FilterMode.REMOVE
+    // 算法优化
     let conditionIndex = 0
     return targets.filter((target) => {
       let result = useRemove
