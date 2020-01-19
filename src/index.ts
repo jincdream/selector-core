@@ -1,23 +1,5 @@
-export interface IValueModel {
-  value: string | number | boolean | object
-  label: string
-}
-
-export interface ISValueModel extends IValueModel {
-  indexValue?: number
-  isCurrent?: boolean
-}
-
-export enum InserMode {
-  SINGLE = 'single',
-  MULTI = 'multi',
-}
-
-export enum FilterMode {
-  EXTRACT = 'extract',
-  REMOVE = 'remove',
-}
-
+import CloneDeepWith from 'lodash.clonedeepwith'
+import { IValueModel, ISValueModel, InserMode, FilterMode } from './coreTypes'
 export default class Selector {
   dataSource = [] as ISValueModel[]
   values = [] as ISValueModel[]
@@ -25,7 +7,8 @@ export default class Selector {
     this.init(dataSource, values)
   }
   init(dataSource: ISValueModel[] = [], values: IValueModel[] = []) {
-    this.dataSource = dataSource.map((v, indexValue) => {
+    let cpDataSource = CloneDeepWith<ISValueModel[]>(dataSource)
+    this.dataSource = cpDataSource.map((v, indexValue) => {
       const isCurrent = values.some((vv) => {
         const oValue = { ...vv } as ISValueModel
         if (typeof oValue.value === 'object') {
@@ -72,10 +55,8 @@ export default class Selector {
   /**
    * getDataSource
    */
-  getDataSource() {
-    return this.dataSource.map((v) => {
-      return JSON.parse(JSON.stringify(v))
-    })
+  getDataSource(): ISValueModel[] {
+    return CloneDeepWith<ISValueModel[]>(this.dataSource)
   }
   /**
    * saveValues

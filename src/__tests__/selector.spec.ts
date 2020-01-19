@@ -1,5 +1,5 @@
 import Selector from '../index'
-import { InserMode, ISValueModel } from '../index'
+import { InserMode, ISValueModel } from '../coreTypes'
 
 const Copy = (o: object | object[]) => JSON.parse(JSON.stringify(o))
 

@@ -70,7 +70,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx,css,scss,sass,less,md}": [
+    "src/*.{ts,tsx,js,jsx,css,scss,sass,less,md}": [
       "prettier --write",
       "git add"
     ],
@@ -82,11 +82,14 @@
   "peerDependencies": {
     "tslib": ">=1.9.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash.clonedeepwith": "^4.5.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "7.2.1",
     "@commitlint/config-conventional": "7.1.2",
     "@types/jest": "23.3.10",
+    "@types/lodash.clonedeepwith": "4.5.6",
     "@types/node": "8.10.*",
     "@types/prettier": "1.15.2",
     "@types/webpack-config-utils": "2.3.0",
