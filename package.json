@@ -1,6 +1,6 @@
 {
   "name": "selector-core",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "selector",
   "keywords": [
     "selector",
@@ -83,6 +83,7 @@
     "tslib": ">=1.9.0"
   },
   "dependencies": {
+    "@types/json5": "0.0.30",
     "lodash.clonedeepwith": "^4.5.0"
   },
   "devDependencies": {
