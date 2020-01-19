@@ -52,7 +52,8 @@
     "release:github": "git push --no-verify --follow-tags origin master",
     "release:npm": "npm publish dist",
     "release:preflight": "npm pack ./dist --dry-run",
-    "size": "node scripts/file-size ./dist/bundles/index.umd.min.js ./dist/bundles/index.esm.min.js"
+    "size": "node scripts/file-size ./dist/bundles/index.umd.min.js ./dist/bundles/index.esm.min.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
   },
   "config": {
     "commitizen": {
