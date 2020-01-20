@@ -8,21 +8,21 @@ export default class Selector {
   }
   init(dataSource: ISValueModel[] = [], values: IValueModel[] = []) {
     let cpDataSource = CloneDeepWith<ISValueModel[]>(dataSource)
-    this.dataSource = cpDataSource.map((v, indexValue) => {
-      const isCurrent = values.some((vv) => {
+    this.dataSource = cpDataSource.map((v, ____indexValue____) => {
+      const ____isCurrent____ = values.some((vv) => {
         const oValue = { ...vv } as ISValueModel
         if (typeof oValue.value === 'object') {
           throw new Error("${value} can't be a 'object' type!")
         }
         const _isCurrent = oValue.value === v.value
         if (_isCurrent) {
-          oValue.indexValue = indexValue
-          oValue.isCurrent = true
+          oValue.____indexValue____ = ____indexValue____
+          oValue.____isCurrent____ = true
         }
         return _isCurrent
       })
-      v.indexValue = indexValue
-      v.isCurrent = isCurrent
+      v.____indexValue____ = ____indexValue____
+      v.____isCurrent____ = ____isCurrent____
       return { ...v }
     })
     this.values = values
@@ -49,7 +49,7 @@ export default class Selector {
    * cleaning
    */
   clean(value: ISValueModel) {
-    const { indexValue, isCurrent, ...result } = value
+    const { ____indexValue____, ____isCurrent____, ...result } = value
     return result
   }
   /**
@@ -84,7 +84,7 @@ export default class Selector {
    * changeValues
    */
   change(values: ISValueModel[] = [], mode: InserMode = InserMode.SINGLE) {
-    if (values[0].isCurrent) {
+    if (values[0].____isCurrent____) {
       this.removeValues(values)
     } else {
       const test = this.filterValues(this.values, values, FilterMode.EXTRACT)
@@ -96,8 +96,11 @@ export default class Selector {
   }
   private contrast(condition: ISValueModel, targer: ISValueModel) {
     let than = false
-    if (condition.indexValue !== void 0 && targer.indexValue !== void 0) {
-      than = targer.indexValue === condition.indexValue
+    if (
+      condition.____indexValue____ !== void 0 &&
+      targer.____indexValue____ !== void 0
+    ) {
+      than = targer.____indexValue____ === condition.____indexValue____
     } else {
       than = condition.value === targer.value
     }

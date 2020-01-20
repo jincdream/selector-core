@@ -3,7 +3,7 @@
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es5",
-    "lib": ["es6", "dom","WebWorker","ES2015"],
+    "lib": ["es6", "dom"],
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

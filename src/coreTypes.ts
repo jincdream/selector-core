@@ -4,8 +4,8 @@ export interface IValueModel {
 }
 
 export interface ISValueModel extends IValueModel {
-  indexValue?: number
-  isCurrent?: boolean
+  ____indexValue____?: number
+  ____isCurrent____?: boolean
 }
 
 export enum InserMode {
