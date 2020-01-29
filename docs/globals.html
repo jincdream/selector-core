@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>selector.js | selector.js</title>
+	<title>selector-core | selector-core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -879,7 +879,7 @@ img { max-width: 100%; }
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="index.html">selector.js</a></strong>
+					<strong><a href="index.html">selector-core</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -915,45 +915,186 @@ img { max-width: 100%; }
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
 			<p align="center">
-				<img src="https://user-images.githubusercontent.com/1223799/50992071-73562500-1516-11e9-99fa-9f73b0f0eee2.png" width="597" alt="selector">
+				<img src="./logo.png" width="200" alt="selector">
 			</p>
-			<h1 id="selector">selector</h1>
+			<h1 id="selector-core">selector-core</h1>
 			<blockquote>
-				<p>selector</p>
+				<p>selector-core</p>
 			</blockquote>
-			<p><a href="https://travis-ci.org/jincdream/selector"><img src="https://travis-ci.org/jincdream/selector.svg?branch=master" alt="Build Status"></a>
-				<a href="https://www.npmjs.com/package/selector"><img src="https://img.shields.io/npm/v/selector.svg" alt="NPM version"></a>
-				<img src="https://img.shields.io/npm/dm/selector.svg" alt="Downloads">
+			<p><a href="https://travis-ci.org/jincdream/selector.js.svg?branch=master"><img src="https://travis-ci.org/jincdream/selector.js.svg?branch=master" alt="Build Status"></a>
+				<a href="https://www.npmjs.com/package/selector-core"><img src="https://img.shields.io/npm/v/selector-core.svg" alt="NPM version"></a>
+				<img src="https://img.shields.io/npm/dm/selector-core.svg" alt="Downloads">
 				<a href="https://github.com/conventional-changelog/standard-version"><img src="https://img.shields.io/badge/release-standard%20version-brightgreen.svg" alt="Standard Version"></a>
-				<a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="styled with prettier"></a>
 			<a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="Conventional Commits"></a></p>
 			<hr>
 			<h2 id="-features">✨ Features</h2>
 			<ul>
-				<li>feature one</li>
-				<li>feature two</li>
+				<li>The simulation Javascript to UI</li>
+				<li>No UI</li>
 			</ul>
 			<h2 id="-installation">🔧 Installation</h2>
-			<pre><code class="language-sh">yarn add selector</code></pre>
-			<h2 id="-getting-started">🎬 Getting started</h2>
-			<p>Let&#39;s demonstrate simple usage with ... example:</p>
-			<pre><code class="language-ts"><span class="hljs-comment">// your code example</span></code></pre>
+			<pre><code class="language-sh">yarn add selector-core</code></pre>
+			<pre><code><span class="hljs-symbol">npm</span> i <span class="hljs-keyword">selector-core </span>-S</code></pre><h2 id="-getting-started">🎬 Getting started</h2>
+			<p>Simple:</p>
+			<pre><code class="language-ts"><span class="hljs-keyword">import</span> Selector,{ISValueModel} <span class="hljs-keyword">from</span> <span class="hljs-string">"selector-core"</span>
+
+<span class="hljs-keyword">const</span> DataSource: ISValueModel[] = [{
+  leble: <span class="hljs-string">"React"</span>,
+  value: <span class="hljs-string">"react"</span>
+},{
+  leble: <span class="hljs-string">"Vue"</span>,
+  value: <span class="hljs-string">"vuew"</span>
+},{
+  leble: <span class="hljs-string">"Angular"</span>,
+  value: <span class="hljs-string">"angular"</span>
+},{
+  lable: <span class="hljs-string">"TaobalMiniapp"</span>,
+  value: <span class="hljs-string">"tabobao_miniapp"</span>
+}]
+
+<span class="hljs-keyword">const</span> selector = <span class="hljs-keyword">new</span> Selector(DataSource)
+</code></pre>
 			<h2 id="-examples">🎭 Examples</h2>
-			<p>Go checkout <a href="./examples">examples</a> !</p>
-			<h2 id="-api">📜 API</h2>
-			<blockquote>
-				<p>Document your API here</p>
-			</blockquote>
-			<h3 id="publicmethodone-value-string-string"><code>publicMethodOne(value:string): string</code></h3>
-			<p>This methods does foo bar moo...</p>
-			<p><strong>Example:</strong></p>
-			<pre><code class="language-ts"><span class="hljs-comment">// example</span></code></pre>
-			<h2 id="-guides">🎓 Guides</h2>
-			<details>
-				<summary>How to do Foo</summary>
-				Today we're gonna build Foo....
-			</details>
-			<h3 id="-troubleshooting">🕵️ Troubleshooting</h3>
+			<pre><code class="language-ts"><span class="hljs-keyword">import</span> Selector,{ISValueModel} <span class="hljs-keyword">from</span> <span class="hljs-string">"selector-core"</span>
+
+<span class="hljs-keyword">const</span> DataSource: ISValueModel[] = [{
+  leble: <span class="hljs-string">"React"</span>,
+  value: <span class="hljs-string">"react"</span>
+},{
+  leble: <span class="hljs-string">"Vue"</span>,
+  value: <span class="hljs-string">"vuew"</span>
+},{
+  leble: <span class="hljs-string">"Angular"</span>,
+  value: <span class="hljs-string">"angular"</span>
+},{
+  lable: <span class="hljs-string">"TaobalMiniapp"</span>,
+  value: <span class="hljs-string">"tabobao_miniapp"</span>
+}]
+
+<span class="hljs-keyword">const</span> InitValues = []
+
+<span class="hljs-keyword">const</span> selector = <span class="hljs-keyword">new</span> Selector(DataSource,InitValues)
+
+<span class="hljs-keyword">let</span> values = selector.getValues()
+<span class="hljs-comment">// ==&gt;</span>
+<span class="hljs-comment">// []</span>
+
+<span class="hljs-keyword">let</span> dataSource = selector.getDataSource()
+<span class="hljs-comment">/* ==&gt;
+[{
+  leble: "React",
+  value: "react",
+  isCurrent: false, // built-in
+  indexValue: 0 // built-in
+},{
+  leble: "Vue",
+  value: "vuew",
+  isCurrent: false, // built-in
+  indexValue: 1 // built-in
+},{
+  leble: "Angular",
+  value: "angular",
+  isCurrent: false, // built-in
+  indexValue: 2 // built-in
+},{
+  lable: "TaobalMiniapp",
+  value: "tabobao_miniapp",
+  isCurrent: false, // built-in
+  indexValue: 3 // built-in
+}]
+*/</span>
+
+<span class="hljs-comment">// select values</span>
+selector.change([dataSource[<span class="hljs-number">3</span>]]).getValues()
+<span class="hljs-comment">/* ==&gt;
+{
+  lable: "TaobalMiniapp",
+  value: "tabobao_miniapp"
+}
+*/</span>
+
+<span class="hljs-comment">// invert selection</span>
+selector.change([dataSource[<span class="hljs-number">3</span>]]).getValues()
+<span class="hljs-comment">/* ==&gt;
+[]
+*/</span>
+</code></pre>
+			<h2 id="the-constructor-arguments">The constructor arguments</h2>
+			<pre><code class="language-ts">Selector(dataSource: ISValueModel[] = [], values: ISValueModel[] = [])
+</code></pre>
+			<table>
+				<thead>
+					<tr>
+						<th>参数名(name)</th>
+						<th>说明(explain)</th>
+						<th>必填(required)</th>
+						<th>类型(types)</th>
+						<th>默认值(default)</th>
+						<th>备注(PS)</th>
+					</tr>
+				</thead>
+				<tbody><tr>
+						<td>|</td>
+						<td>|</td>
+						<td>|</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>dataSource</td>
+						<td>可选数据模型（selectable values）</td>
+						<td>是（Y）</td>
+						<td>ISValueModel[]</td>
+						<td>无（null）</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>values</td>
+						<td>已选值（selected values）</td>
+						<td>否（N）</td>
+						<td>ISValueModel[]</td>
+						<td>无（null）</td>
+						<td></td>
+					</tr>
+			</tbody></table>
+			<h2 id="the-instance-api">The instance API</h2>
+			<h3 id="getvalues-ivaluemodel-"><code>getValues(): IValueModel[]</code></h3>
+			<ul>
+				<li>获取当前已选的values（Get the selected values）。</li>
+			</ul>
+			<h3 id="getdatasource-isvaluemodel-"><code>getDataSource(): ISValueModel[]</code></h3>
+			<ul>
+				<li>获取 dataSource （可选值）, 将内置<code>isCurrent</code> 和 <code>isCurrent</code> 属性（Get the <code>dataSource</code> value(selectable values), property <code>isCurrent</code>,<code>indexValue</code> will be built-in）</li>
+			</ul>
+			<h3 id="change-values-isvaluemodel-mode-insermode-insermode-single-"><code>change(values: ISValueModel, mode?: InserMode = InserMode.SINGLE)</code></h3>
+			<ul>
+				<li>改变某些可选项的状态，如果没被选中（不在values里面），将被选中；如果已经被选中（在values）里面，将被剔除</li>
+				<li><code>values</code>: 必须是在DataSource里面的选项</li>
+				<li><code>mode</code>: 单选（<code>sigle</code>）还是多选（<code>multi</code>），默认为单选。</li>
+			</ul>
+			<h3 id="removevalues-values-isvaluemodel-"><code>removeValues(values: ISValueModel[])</code></h3>
+			<ul>
+				<li>从values里面剔除某些已选中值。</li>
+			</ul>
+			<h3 id="inservalue-values-isvaluemodel-mode-insermode-"><code>inserValue(values: ISValueModel[], mode: InserMode)</code></h3>
+			<ul>
+				<li>往values里面插入某些值，该值必须在<code>dataSource</code>里面。</li>
+				<li><code>mode=sigle</code>: <code>values</code> 将直接替换掉已有的值</li>
+				<li><code>mode=multi</code>: <code>values</code> 将在已选择值后面添加</li>
+			</ul>
+			<h3 id="initdatasource-datasource-isvaluemodel-"><code>initDataSource(dataSource: ISValueModel[] = [])</code></h3>
+			<ul>
+				<li>将改变实例的<code>dataSource</code>，当前选择器的<code>values</code>不变</li>
+			</ul>
+			<h3 id="initvalues-values-isvaluemodel-"><code>initValues(values: ISValueModel[] = [])</code></h3>
+			<ul>
+				<li>将改变实例的<code>values</code>，当前选择器的<code>dataSource</code>不变</li>
+			</ul>
+			<h3 id="init-datasource-isvaluemodel-values-ivaluemodel-"><code>init(dataSource: ISValueModel[] = [], values: IValueModel[] = [])</code></h3>
+			<ul>
+				<li>同时改变<code>values</code>和<code>dataSource</code></li>
+			</ul>
 			<h2 id="-license">🥂 License</h2>
 			<p><a href="./LICENSE.md">MIT</a> as always</p>
 		</div>
@@ -964,6 +1105,7 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>External modules</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-external-module"><a href="modules/_coretypes_.html" class="tsd-kind-icon">"core<wbr>Types"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_index_.html" class="tsd-kind-icon">"index"</a></li>
 						</ul>
 					</section>
