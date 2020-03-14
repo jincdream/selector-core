@@ -34,6 +34,21 @@ export default class Selector {
     this.init(dataSource, this.values)
   }
   /**
+   * example: has dataSource [{value: 1, label: 1}]
+   * selector.addDataSource([{value: 1, label: 1},{value: 2, label: 2}])
+   * return [{value: 1, label: 1},{value: 2, label: 2}]
+   * @param newDataSource [{value: "value", label: "label"}]
+   */
+  addDataSource(newDataSource: ISValueModel[] = []) {
+    let oldDataSource = this.getDataSource()
+    let dataSource = this.filterValues(
+      oldDataSource.map((v) => this.clean(v)),
+      newDataSource,
+      FilterMode.REMOVE
+    )
+    this.initDataSource(dataSource.concat(oldDataSource))
+  }
+  /**
    * valueChange
    */
   initValues(values: ISValueModel[] = []) {

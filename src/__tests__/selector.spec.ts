@@ -184,4 +184,23 @@ describe(`Greeter`, () => {
       expect(dataSource).toEqual(sDataSource.map((v) => selector.clean(v)))
     }
   })
+
+  it(`--API--: [newDataSource]`, () => {
+    const newDatasource = [{
+      label: 'text0',
+      value: 0,
+    },
+    {
+      label: 'text990',
+      value: 999,
+    }]
+    const targetDatasource = [{
+      label: 'text990',
+      value: 999,
+    } as ISValueModel].concat(dataSource)
+
+    selector.addDataSource(newDatasource)
+    const resultDataSource = selector.getDataSource().map(v=>selector.clean(v))
+    expect(resultDataSource).toEqual(targetDatasource)
+  })
 })
