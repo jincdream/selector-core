@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/jincdream/selector/compare/v0.2.3...v0.4.0) (2020-03-14)
+
+
+### Bug Fixes
+
+* reset ([8f5d631](https://github.com/jincdream/selector/commit/8f5d631))
+
+
+### Features
+
+* api addDataSource ([8b36259](https://github.com/jincdream/selector/commit/8b36259))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/jincdream/selector/compare/v0.2.3...v0.3.0) (2020-01-20)
 
