@@ -95,6 +95,12 @@ export default class Selector {
     const newValues = this.filterValues(values, this.values, FilterMode.REMOVE)
     this.initValues(newValues)
   }
+  mixValueFromDataSource() {
+    this.values = this.values.map(v => {
+      let dataSource = this.dataSource.find(k => this.contrast(v, k))
+      return dataSource ? { ...dataSource } : v
+    })
+  }
   /**
    * changeValues
    */

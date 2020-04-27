@@ -209,4 +209,40 @@ describe(`Greeter`, () => {
       .map((v) => selector.clean(v))
     expect(resultDataSource).toEqual(targetDatasource)
   })
+
+  it(`--API--: [dataSource value]`, () => {
+    let selector: Selector
+    const dataSource = [
+      {
+        label: 'text0',
+        value: 0,
+        t: 0,
+      },
+      {
+        label: 'text1',
+        value: 1,
+        t: 1,
+      },
+      {
+        label: 'text2',
+        value: 2,
+        t: 2,
+      },
+      {
+        label: 'text3',
+        value: 3,
+      }
+    ] as ISValueModel[]
+    let _selector = new Selector(dataSource, [{
+      label: 'text0',
+      value: 0
+    }])
+    _selector.mixValueFromDataSource()
+    // bad case
+    // expect(_selector.getValues()).toEqual([{
+    //   label: 'text0',
+    //   value: 0
+    // }])
+    expect(_selector.getValues()).toEqual([dataSource[0]])
+  })
 })
