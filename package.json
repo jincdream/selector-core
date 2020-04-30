@@ -1,6 +1,6 @@
 {
   "name": "selector-core",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "selector",
   "keywords": [
     "selector",
@@ -83,7 +83,8 @@
     "tslib": ">=1.9.0"
   },
   "dependencies": {
-    "lodash.clonedeepwith": "^4.5.0"
+    "lodash.clonedeepwith": "^4.5.0",
+    "tslib": "^1.11.1"
   },
   "devDependencies": {
     "@commitlint/cli": "7.2.1",
