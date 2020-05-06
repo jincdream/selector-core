@@ -95,9 +95,27 @@ export default class Selector {
     const newValues = this.filterValues(values, this.values, FilterMode.REMOVE)
     this.initValues(newValues)
   }
+  fixValue<T extends { [key: string]: any }>(option: { valueKey: keyof T, labelKey?: keyof T, values: T[] }): ISValueModel[] {
+    let { values = [], valueKey, labelKey = "" } = option
+    return values.map(v => {
+      let rz: ISValueModel = {
+        value: v[valueKey],
+        label: v[labelKey],
+        ...v
+      }
+      return rz
+    })
+  }
+  /**
+   * case:
+   * value: { value: 1, label: "a" }
+   * dataSource: { value: 1, label: "a", ext: { data: {} }}
+   *
+   * value ===> { value: 1, label: "a", ext: { data: {} }}
+   */
   mixValueFromDataSource() {
-    this.values = this.values.map(v => {
-      let dataSource = this.dataSource.find(k => this.contrast(v, k))
+    this.values = this.values.map((v) => {
+      let dataSource = this.dataSource.find((k) => this.contrast(v, k))
       return dataSource ? { ...dataSource } : v
     })
   }

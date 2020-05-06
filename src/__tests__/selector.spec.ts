@@ -212,32 +212,33 @@ describe(`Greeter`, () => {
 
   it(`--API--: [dataSource value]`, () => {
     let selector: Selector
-    const dataSource = [
+    const dataSource = ([
       {
-        label: 'text0',
-        value: 0,
-        t: 0,
+        value: '0',
+        label: '',
+        checked: 'false',
+        image:
+          '//img.alicdn.com/bao/uploaded/i1/263667666/O1CN01AqzXxs26V4o35xsB5_!!0-item_pic.jpg',
+        itemId: '605984572601',
+        itemName: '11111为鲲测试请不要拍002',
+        price: '1.0',
       },
       {
-        label: 'text1',
-        value: 1,
-        t: 1,
+        value: '2',
+        label: '',
+        checked: 'false',
+        image:
+          '//img.alicdn.com/bao/uploaded/i4/263667666/O1CN015sdt1Q26V4o1qDx5y_!!0-item_pic.jpg',
+        itemId: '605979860998',
+        itemName: '为鲲测试，请不要拍001',
+        price: '1.0',
       },
-      {
-        label: 'text2',
-        value: 2,
-        t: 2,
-      },
-      {
-        label: 'text3',
-        value: 3,
-      }
-    ] as ISValueModel[]
-    let _selector = new Selector(dataSource, [{
-      label: 'text0',
-      value: 0
-    }])
+    ] as unknown) as ISValueModel[]
+    let _selector = new Selector(dataSource, ([
+      { value: '0', price: '1.0' },
+    ] as unknown) as ISValueModel[])
     _selector.mixValueFromDataSource()
+    console.log(_selector.getValues())
     // bad case
     // expect(_selector.getValues()).toEqual([{
     //   label: 'text0',
