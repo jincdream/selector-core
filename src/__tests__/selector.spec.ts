@@ -211,7 +211,6 @@ describe(`Greeter`, () => {
   })
 
   it(`--API--: [dataSource value]`, () => {
-    let selector: Selector
     const dataSource = ([
       {
         value: '0',
@@ -238,12 +237,46 @@ describe(`Greeter`, () => {
       { value: '0', price: '1.0' },
     ] as unknown) as ISValueModel[])
     _selector.mixValueFromDataSource()
-    console.log(_selector.getValues())
     // bad case
     // expect(_selector.getValues()).toEqual([{
     //   label: 'text0',
     //   value: 0
     // }])
     expect(_selector.getValues()).toEqual([dataSource[0]])
+  })
+
+  it(`--API--: [fixValue]`, () => {
+    type Item = {
+      itemId: string,
+      itemName: string
+    }
+    let _selector = new Selector([], [])
+    const items: Item[] = [
+      {
+        itemId: '605984572601',
+        itemName: '11111为鲲测试请不要拍002',
+      },
+      {
+        itemId: '605979860998',
+        itemName: '为鲲测试，请不要拍001',
+      },
+    ]
+    const itemValue: Item[] = [{
+      itemId: '605984572601',
+      itemName: '11111为鲲测试请不要拍002',
+    }]
+    const dataSource = _selector.fixValue<Item>({
+      valueKey: "itemId",
+      labelKey: "itemName",
+      values: items
+    })
+    const values = _selector.fixValue<Item>({
+      valueKey: "itemId",
+      values: itemValue
+    })
+    _selector.init(dataSource, values)
+
+    expect(_selector.getDataSource().map(d => _selector.clean(d))).toEqual(dataSource)
+    expect(_selector.getValues()).toEqual(values)
   })
 })
