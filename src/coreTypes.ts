@@ -8,7 +8,7 @@ export interface ISValueModel extends IValueModel {
   isCurrent?: boolean
 }
 
-export enum InserrMode {
+export enum InsertMode {
   SINGLE = 'single',
   MULTI = 'multi',
 }
