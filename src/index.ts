@@ -1,5 +1,6 @@
 import CloneDeepWith from 'lodash.clonedeepwith'
-import { IValueModel, ISValueModel, InserMode, FilterMode } from './coreTypes'
+import { IValueModel, ISValueModel, InsertMode, FilterMode } from './coreTypes'
+export * from './coreTypes'
 export default class Selector {
   dataSource = [] as ISValueModel[]
   values = [] as ISValueModel[]
@@ -76,8 +77,8 @@ export default class Selector {
   /**
    * saveValues
    */
-  inserValue(values: ISValueModel[], mode: InserMode) {
-    if (mode === InserMode.SINGLE) {
+  insertValue(values: ISValueModel[], mode: InsertMode) {
+    if (mode === InsertMode.SINGLE) {
       this.initValues(values)
     } else {
       const newValues = this.filterValues(
@@ -95,13 +96,17 @@ export default class Selector {
     const newValues = this.filterValues(values, this.values, FilterMode.REMOVE)
     this.initValues(newValues)
   }
-  fixValue<T extends { [key: string]: any }>(option: { valueKey: keyof T, labelKey?: keyof T, values: T[] }): ISValueModel[] {
-    let { values = [], valueKey, labelKey = "" } = option
-    return values.map(v => {
+  fixValue<T extends { [key: string]: any }>(option: {
+    valueKey: keyof T
+    labelKey?: keyof T
+    values: T[]
+  }): ISValueModel[] {
+    let { values = [], valueKey, labelKey = '' } = option
+    return values.map((v) => {
       let rz: ISValueModel = {
         value: v[valueKey],
         label: v[labelKey],
-        ...v
+        ...v,
       }
       return rz
     })
@@ -122,13 +127,13 @@ export default class Selector {
   /**
    * changeValues
    */
-  change(values: ISValueModel[] = [], mode: InserMode = InserMode.SINGLE) {
+  change(values: ISValueModel[] = [], mode: InsertMode = InsertMode.SINGLE) {
     if (values[0].isCurrent) {
       this.removeValues(values)
     } else {
       const test = this.filterValues(this.values, values, FilterMode.EXTRACT)
       test.length === 0
-        ? this.inserValue(values, mode)
+        ? this.insertValue(values, mode)
         : this.removeValues(values)
     }
     return this

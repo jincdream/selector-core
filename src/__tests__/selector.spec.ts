@@ -1,9 +1,9 @@
 import Selector from '../index'
-import { InserMode, ISValueModel } from '../coreTypes'
+import { InsertMode, ISValueModel } from '../coreTypes'
 
 const Copy = (o: object | object[]) => JSON.parse(JSON.stringify(o))
 
-const inserMode = InserMode
+const insertMode = InsertMode
 describe(`Greeter`, () => {
   let selector: Selector
   const dataSource = [
@@ -50,10 +50,10 @@ describe(`Greeter`, () => {
     expect(dataSource).toEqual(sDataSource.map((v) => selector.clean(v)))
   })
 
-  it(`--API--: [inserValue] | [removeValues] | [clean]`, () => {
+  it(`--API--: [insertValue] | [removeValues] | [clean]`, () => {
     // 选择第一个值
     {
-      selector.inserValue([dataSource[0]], inserMode.SINGLE)
+      selector.insertValue([dataSource[0]], insertMode.SINGLE)
       const values = selector.getValues()
       const sDataSource = selector.getDataSource()
       expect(values.length).toBe(1)
@@ -61,7 +61,7 @@ describe(`Greeter`, () => {
     }
     // 选择第二个值
     {
-      selector.inserValue([dataSource[1]], inserMode.SINGLE)
+      selector.insertValue([dataSource[1]], insertMode.SINGLE)
       const values = selector.getValues()
       const sDataSource = selector.getDataSource()
       expect(values.length).toBe(1)
@@ -69,7 +69,7 @@ describe(`Greeter`, () => {
     }
     // 选择第三个值
     {
-      selector.inserValue([dataSource[2]], inserMode.SINGLE)
+      selector.insertValue([dataSource[2]], insertMode.SINGLE)
       const values = selector.getValues()
       const sDataSource = selector.getDataSource()
       expect(values.length).toBe(1)
@@ -77,7 +77,7 @@ describe(`Greeter`, () => {
     }
     // 选择第四个值 多选
     {
-      selector.inserValue([dataSource[3]], inserMode.MULTI)
+      selector.insertValue([dataSource[3]], insertMode.MULTI)
       const values = selector.getValues()
       const sDataSource = selector.getDataSource()
       expect(values.length).toBe(2)
@@ -87,7 +87,7 @@ describe(`Greeter`, () => {
     }
     // 选择第五个值 变成单选
     {
-      selector.inserValue([dataSource[4]], inserMode.SINGLE)
+      selector.insertValue([dataSource[4]], insertMode.SINGLE)
       const values = selector.getValues()
       const sDataSource = selector.getDataSource()
       expect(values.length).toBe(1)
@@ -104,7 +104,7 @@ describe(`Greeter`, () => {
     }
     // 全选
     {
-      selector.inserValue(dataSource, inserMode.MULTI)
+      selector.insertValue(dataSource, insertMode.MULTI)
       const values = selector.getValues()
       const sDataSource = selector.getDataSource()
       expect(values.length).toBe(dataSource.length)
@@ -167,7 +167,7 @@ describe(`Greeter`, () => {
     }
     // 全选
     {
-      selector.change(dataSource, InserMode.MULTI)
+      selector.change(dataSource, InsertMode.MULTI)
       const values = selector.getValues()
       const sDataSource = selector.getDataSource()
       expect(values.length).toBe(dataSource.length)
@@ -176,7 +176,7 @@ describe(`Greeter`, () => {
     }
     // 反选， 清空
     {
-      selector.change(dataSource, InserMode.MULTI)
+      selector.change(dataSource, InsertMode.MULTI)
       const values = selector.getValues()
       const sDataSource = selector.getDataSource()
       expect(values.length).toBe(0)
@@ -247,7 +247,7 @@ describe(`Greeter`, () => {
 
   it(`--API--: [fixValue]`, () => {
     type Item = {
-      itemId: string,
+      itemId: string
       itemName: string
     }
     let _selector = new Selector([], [])
@@ -261,22 +261,26 @@ describe(`Greeter`, () => {
         itemName: '为鲲测试，请不要拍001',
       },
     ]
-    const itemValue: Item[] = [{
-      itemId: '605984572601',
-      itemName: '11111为鲲测试请不要拍002',
-    }]
+    const itemValue: Item[] = [
+      {
+        itemId: '605984572601',
+        itemName: '11111为鲲测试请不要拍002',
+      },
+    ]
     const dataSource = _selector.fixValue<Item>({
-      valueKey: "itemId",
-      labelKey: "itemName",
-      values: items
+      valueKey: 'itemId',
+      labelKey: 'itemName',
+      values: items,
     })
     const values = _selector.fixValue<Item>({
-      valueKey: "itemId",
-      values: itemValue
+      valueKey: 'itemId',
+      values: itemValue,
     })
     _selector.init(dataSource, values)
 
-    expect(_selector.getDataSource().map(d => _selector.clean(d))).toEqual(dataSource)
+    expect(_selector.getDataSource().map((d) => _selector.clean(d))).toEqual(
+      dataSource
+    )
     expect(_selector.getValues()).toEqual(values)
   })
 })
