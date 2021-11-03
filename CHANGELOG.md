@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/jincdream/selector/compare/v0.5.2...v0.6.0) (2021-11-03)
+
+
+### Features
+
+* fixValue ([fa152c0](https://github.com/jincdream/selector/commit/fa152c0))
+
+
+
 <a name="0.5.2"></a>
 ## [0.5.2](https://github.com/jincdream/selector/compare/v0.5.1...v0.5.2) (2020-04-30)
 
